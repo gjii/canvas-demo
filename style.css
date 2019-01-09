@@ -1,0 +1,18 @@
+#xxx{
+    background:green;
+    display: block;
+}
+.actions{
+    position:fixed;
+    bottom: 0;
+    left: 0;
+}
+.actions >#brush{
+    display: none;
+}
+.actions.x >#brush{
+    display: inline-block;
+}
+.actions.x >#eraser{
+    display: none;
+}
