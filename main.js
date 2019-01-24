@@ -25,15 +25,10 @@ clear.onclick = function(){
   context.clearRect(0, 0, yyy.width, yyy.height)
 }
 save.onclick = function(){
-  var url = yyy.toDataURL("image/png")
-  console.log(url)
-  var a = document.createElement('a')
-  document.body.appendChild(a)
-  a.href = url
-  a.save = 'xxxxx'
-  a.click()
-
+  var image = yyy.toDataURL("image/png").replace("image/png", "image/octet-stream");
+  window.location.href = image;
 }
+
 
 
 red.onclick = function(){
