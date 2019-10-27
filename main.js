@@ -11,58 +11,51 @@ listenToUser(yyy)
 
 /********/
 var eraserEnabled = false
-pen.onclick = function(){
+pen.onclick = function () {
   eraserEnabled = false
   pen.classList.add('active')
   eraser.classList.remove('active')
 }
-eraser.onclick = function(){
+eraser.onclick = function () {
   eraserEnabled = true
   eraser.classList.add('active')
   pen.classList.remove('active')
 }
-clear.onclick = function(){
+clear.onclick = function () {
   context.clearRect(0, 0, yyy.width, yyy.height)
 }
-save.onclick = function(){
+save.onclick = function () {
   var image = yyy.toDataURL("image/png").replace("image/png", "image/octet-stream");
   window.location.href = image;
 }
 
 
 
-red.onclick = function(){
-  context.strokeStyle = 'red'
-  red.classList.add('active')
-  black.classList.remove('active')
-  green.classList.remove('active')
-  blue.classList.remove('active')
-}
-green.onclick = function(){
-  context.strokeStyle = 'green'
-  green.classList.add('active')
-  black.classList.remove('active')
-  red.classList.remove('active')
-  blue.classList.remove('active')
-}
-blue.onclick = function(){
-  context.strokeStyle = 'blue'
-  blue.classList.add('active')
-  black.classList.remove('active')
-  red.classList.remove('active')
-  green.classList.remove('active')
+var colors = $('#colors > li')
+for (let i = 0; i < colors.length; i++) {
+  $(colors[i]).on('click', function (x) {
+    var penColor = colors[i].className
+    $('#pen').css({
+      fill: penColor
+    }).addClass("penColor")
+    context.strokeStyle = `${penColor}`
+    $(x.currentTarget).addClass("active").siblings().removeClass("active")
+  })
 }
 
-thin.onclick = function(){
-  lineWidth = 2
+var size = $('#size > li')
+for (let i = 0; i < size.length; i++) {
+  $(size[i]).on('click', function (x) {
+    var index = $(x.currentTarget).index()
+    lineWidth = 2 * (index + 1)
+    var lineColor = $('#pen').className
+    console.log(lineColor)
+    $(size[i]).css({
+width:24
+    })
+    $(size[i]).siblings().css({width: 16})
+  })
 }
-middle.onclick = function(){
-  lineWidth = 5
-}
-thick.onclick = function(){
-  lineWidth = 10
-}
-
 
 
 /********/
@@ -100,8 +93,7 @@ function listenToUser(canvas) {
   var lastPoint = { x: undefined, y: undefined }
   if (document.body.ontouchstart !== undefined) {
     //触屏设备
-    canvas.ontouchstart = function(aaa){
-      console.log('我就摸摸')
+    canvas.ontouchstart = function (aaa) {
       var x = aaa.touches[0].clientX
       var y = aaa.touches[0].clientY
       using = true
@@ -114,8 +106,7 @@ function listenToUser(canvas) {
         }
       }
     }
-    canvas.ontouchmove = function(aaa){
-      console.log('边摸边动')
+    canvas.ontouchmove = function (aaa) {
       var x = aaa.touches[0].clientX
       var y = aaa.touches[0].clientY
       if (!using) { return }
@@ -130,8 +121,7 @@ function listenToUser(canvas) {
         lastPoint = newPoint
       }
     }
-    canvas.ontouchend = function(aaa){
-      console.log('不摸了')
+    canvas.ontouchend = function (aaa) {
       using = false
     }
   } else {
