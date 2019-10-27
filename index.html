@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <link rel="stylesheet" href="./style.css">
-<script src="//at.alicdn.com/t/font_1027651_rz51m4dwpip.js"></script>
+<script src="//at.alicdn.com/t/font_1027651_uwy22m7rye.js"></script>
 <meta charset="UFT-8">
 <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -9,7 +9,11 @@
 
 <body>
     <canvas id="xxx" width=300 height=300></canvas>
+
     <div id=actions class="actions">
+        <svg id=palette class="icon">
+            <use xlink:href="#icon-Palette"></use>
+        </svg>
         <svg id=pen class="active icon">
             <use xlink:href="#icon-pen"></use>
         </svg>
@@ -23,26 +27,32 @@
             <use xlink:href="#icon-save"></use>
         </svg>
     </div>
-    <ol id=colors class="colors">
-        <li id=black class="active black"></li>
-        <li id=grey class="grey"></li>
-        <li id=red class="red"></li>
-        <li id=orange class="orange"></li>
-        <li id=yellow class="yellow"></li>
-        <li id=green class="green"></li>
-        <li id=cyan class="cyan"></li>
-        <li id=blue class="blue"></li>
-        <li id=purple class="purple"></li>
-        <li id=pink class="pink"></li>
-    </ol>
 
-    <ol id=size class="size">
-        <li id=minimum class="minimum"></li>
-        <li id=thin class="thin"></li>
-        <li id=middle class="middle"></li>
-        <li id=thick class="thick"></li>
-        <li id=maximum class="maximum"></li>
-    </ol>
+    <div id=colorPalette  class="colorPalette">
+        <ol id=colors class="colors">
+            <li id=black class="active black"></li>
+            <li id=grey class="grey"></li>
+            <li id=red class="red"></li>
+            <li id=orange class="orange"></li>
+            <li id=yellow class="yellow"></li>
+            <li id=green class="green"></li>
+            <li id=cyan class="cyan"></li>
+            <li id=blue class="blue"></li>
+            <li id=purple class="purple"></li>
+            <li id=pink class="pink"></li>
+        </ol>
+    </div>
+
+    <div>
+        <ol id=size class="size">
+            <li id=minimum class="minimum"></li>
+            <li id=thin class="thin"></li>
+            <li id=middle class="middle"></li>
+            <li id=thick class="thick"></li>
+            <li id=maximum class="maximum"></li>
+        </ol>
+    </div>
+
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <script src="./main.js"> </script>
 </body>

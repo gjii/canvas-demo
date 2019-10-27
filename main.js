@@ -35,6 +35,9 @@ var colors = $('#colors > li')
 for (let i = 0; i < colors.length; i++) {
   $(colors[i]).on('click', function (x) {
     var penColor = colors[i].className
+    $('#palette').css({
+      fill: penColor
+    })
     $('#pen').css({
       fill: penColor
     })
@@ -42,6 +45,16 @@ for (let i = 0; i < colors.length; i++) {
     $(x.currentTarget).addClass("active").siblings().removeClass("active")
   })
 }
+
+
+$(palette).on('click',function (){
+  if($(colorPalette).css("display")=="none"){
+      $(colorPalette).show();
+  }else{
+      $(colorPalette).hide();            
+  }
+})
+
 
 var size = $('#size > li')
 for (let i = 0; i < size.length; i++) {

@@ -5,11 +5,11 @@ ol,ul{list-style:none}
 #xxx{display:block}
 body{margin:0;overflow:hidden}
 .actions{position:fixed;top:10px;transition:all .3s}
-#eraser,#pen{width:24px;height:24px}
+#palette,#eraser,#pen{width:24px;height:24px}
 #clear,#save{width:21px;height:21px}
 .actions svg.active{transform:scale(1.2)}
-.colors{position:fixed;top:40px;left:10px;min-width:30px}
-.colors>li{width:16px;height:16px;margin:8px 10px 8px 0;transition:all .3s}
+.colors{position:fixed;top:40px;left:14px;min-width:30px}
+.colors>li{width:16px;height:16px;margin:4px 10px 8px 0;transition:all .3s}
 .colors>li.black{background:#000}
 .colors>li.red{background:red}
 .colors>li.cyan{background:#0ff}
@@ -21,10 +21,13 @@ body{margin:0;overflow:hidden}
 .colors>li.pink{background:pink}
 .colors>li.blue{background:#00f}
 .colors>li.active{fill:red;transform:scale(1.3)}
-.size{position:fixed;right:0;top:40px;margin-right:4px;width:30px;display:flex;justify-content:center;align-items:center;flex-direction:column}
+.size{position:fixed;right:0;top:44px;margin-right:10px;width:30px;display:flex;justify-content:center;align-items:center;flex-direction:column}
 .size>li{margin:0 0 16px 0}
 .size>.minimum{height:2px;width:24px;background:#000;right:0}
 .size>.thin{height:4px;width:16px;background:#000;right:0}
 .size>.middle{height:6px;width:16px;background:#000;right:0}
 .size>.thick{height:8px;width:16px;background:#000;right:0}
 .size>.maximum{height:10px;width:16px;background:#000;right:0}
+#colorPalette{
+    display: none;
+}
