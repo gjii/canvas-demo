@@ -37,7 +37,7 @@ for (let i = 0; i < colors.length; i++) {
     var penColor = colors[i].className
     $('#pen').css({
       fill: penColor
-    }).addClass("penColor")
+    })
     context.strokeStyle = `${penColor}`
     $(x.currentTarget).addClass("active").siblings().removeClass("active")
   })
@@ -48,12 +48,10 @@ for (let i = 0; i < size.length; i++) {
   $(size[i]).on('click', function (x) {
     var index = $(x.currentTarget).index()
     lineWidth = 2 * (index + 1)
-    var lineColor = $('#pen').className
-    console.log(lineColor)
     $(size[i]).css({
-width:24
+      width: 24
     })
-    $(size[i]).siblings().css({width: 16})
+    $(size[i]).siblings().css({ width: 16 })
   })
 }
 
